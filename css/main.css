@@ -13,7 +13,8 @@ body{
 }
 /* header and forn style*/
 header{
-    font-size: 24px;
+    font-size: 45px;
+    font-weight: bold;
 }
 header,form{
     min-height: 125px;
@@ -103,10 +104,12 @@ form button:hover{
     overflow: hidden;
 }
 select{
-    color : #ff6f47;
+    color : black;
     width: 160px;
     cursor : pointer;
     padding : 16px;
+    border : none;
+    text-decoration: none;
     
 }
 /* Style for arrow */
@@ -118,7 +121,12 @@ select{
     background : #ff6f47;
     top: 0;
     right: 0;
-    padding : 16 px;
+    padding : 18px;
     /* using pointer-events : none; we can click on the arrow */
     pointer-events: none; 
+}
+
+.select:hover::after{
+    background : white;
+    color: #ff6f47;
 }

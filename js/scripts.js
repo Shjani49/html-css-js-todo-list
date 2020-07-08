@@ -2,11 +2,13 @@
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
+const todoFilter = document.querySelector(".filter-todo");
 
 
 // Event Listeners
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
+todoFilter.addEventListener("click", filterTodo);
 
 //Functions
 function addTodo(event)
@@ -61,4 +63,29 @@ function deleteCheck(e)
         const todo = item.parentElement;
         todo.classList.toggle("completed");
     }
+}
+
+function filterTodo(e)
+{
+    const todos = todoList.childNodes;
+    //console.log(todos);
+    // using forEach loops we can access individuals todo
+    todos.forEach(function(todos){
+        switch(e.target.value){
+            case "all":
+                todos.style.display = "flex"; // shows all completed and uncompleted todos
+                break;
+            case "completed":
+                if(todos.classList.contains("completed")) // check if we have  class of completed or not
+                {
+                    todos.style.display = "flex"; // shows completed todos
+                }
+                else
+                {
+                    todos.style.display = "none";
+                }
+            
+        }
+
+    });
 }
