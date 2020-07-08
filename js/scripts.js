@@ -16,6 +16,9 @@ todoFilter.addEventListener("click", filterTodo);
 //Functions
 function addTodo(event)
 {
+    //The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
+    //Clicking on a "Submit" button, prevent it from submitting a form
+    event.preventDefault();
     // Keep track of if the current submission has an error.
     let errors = false;
 
@@ -39,9 +42,7 @@ function addTodo(event)
         error.innerText = "";
 
 
-    //The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
-    //Clicking on a "Submit" button, prevent it from submitting a form
-    event.preventDefault();
+    
     // Create <div class = "todo"> new Element
     //Todo div
     const todoDiv = document.createElement('div');
@@ -82,6 +83,7 @@ function addTodo(event)
 
 function deleteCheck(e)
 {
+    
     const item = e.target;
     //Delete ToDo
     if(item.classList[0] === "trash-btn")
@@ -99,6 +101,7 @@ function deleteCheck(e)
 
 function filterTodo(e)
 {
+
     const todos = todoList.childNodes;
     //console.log(todos);
     // using forEach loops we can access individuals todo
