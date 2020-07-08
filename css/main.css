@@ -138,3 +138,6 @@ select{
     color: black;
     font-weight: bold;
 }
+p{
+    text-align: center;
+}

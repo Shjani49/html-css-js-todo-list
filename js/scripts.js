@@ -41,8 +41,6 @@ function addTodo(event)
         // Clear any errors from previous submissions if this one is valid.
         error.innerText = "";
 
-
-    
     // Create <div class = "todo"> new Element
     //Todo div
     const todoDiv = document.createElement('div');
