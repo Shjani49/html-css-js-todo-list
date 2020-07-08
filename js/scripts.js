@@ -5,6 +5,7 @@ const todoList = document.querySelector(".todo-list");
 const todoFilter = document.querySelector(".filter-todo");
 // <p id="error-output"></p>
 const error = document.querySelector("#error-output");
+let itemArray = [];
 
 
 // Event Listeners
@@ -40,7 +41,7 @@ function addTodo(event)
 
     //The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
     //Clicking on a "Submit" button, prevent it from submitting a form
-    //event.preventDefault();
+    event.preventDefault();
     // Create <div class = "todo"> new Element
     //Todo div
     const todoDiv = document.createElement('div');
@@ -75,6 +76,7 @@ function addTodo(event)
     // Reset Focus To Input After Adding
     input.focus();
     }
+    
 }
 
 function deleteCheck(e)
