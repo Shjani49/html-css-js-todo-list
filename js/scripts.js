@@ -94,6 +94,7 @@ function deleteCheck(e)
     {
         const todo = item.parentElement;
         todo.classList.toggle("completed");
+        
     }
 }
 
@@ -113,7 +114,9 @@ function filterTodo(e)
             case "completed":
                 if(todos.classList.contains("completed")) // check if we have class of completed or not
                 {
+                    
                     todos.style.display = "flex"; // shows completed todos
+                    document.getElementById("input").disabled = true;
                 }
                 else
                 {
@@ -124,6 +127,7 @@ function filterTodo(e)
                 if(!todos.classList.contains("completed")) // check the class don't contain completed todos
                 {
                     todos.style.display = "flex"; 
+                    
                 }
                 else
                 {
