@@ -51,6 +51,7 @@ function addTodo(event)
     const newTodo = document.createElement('li');
     newTodo.innerText = todoInput.value.trim().toLowerCase(); // Grab the Todo Input value 
     newTodo.classList.add('todo-item');
+    itemArray.push(todoInput.value.trim().toLowerCase());
     todoDiv.appendChild(newTodo);
     // Completed button
     //<button></button>
@@ -74,7 +75,7 @@ function addTodo(event)
     todoInput.value = "";
 
     // Reset Focus To Input After Adding
-    input.focus();
+    todoInput.focus();
     }
     
 }
