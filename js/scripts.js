@@ -116,7 +116,7 @@ function filterTodo(e)
                 {
                     
                     todos.style.display = "flex"; // shows completed todos
-                    document.getElementById("input").disabled = true;
+                    
                 }
                 else
                 {
@@ -139,3 +139,23 @@ function filterTodo(e)
 
     });
 }
+$("#select").change(function() 
+{
+    if (($(this).val() == "completed") || ($(this).val() == "active"))
+    {
+      $('#input').hide();
+      $('#button').hide();
+      $('#error-output').hide();
+      
+    } 
+    else 
+    {
+      $('input').show();
+      $('#button').show();
+      $('#error-output').show();
+      
+    }
+});
+$("#select").trigger("change");
+
+
