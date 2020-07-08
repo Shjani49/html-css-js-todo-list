@@ -95,3 +95,30 @@ form button:hover{
     /* @ Link : https://www.w3schools.com/css/css_image_transparency.asp */
     opacity: 0.5;
 }
+/* style for Filter */
+.select
+{
+    margin : 16px;
+    position : relative;
+    overflow: hidden;
+}
+select{
+    color : #ff6f47;
+    width: 160px;
+    cursor : pointer;
+    padding : 16px;
+    
+}
+/* Style for arrow */
+/* After the select element we put arrow */
+.select::after {
+    /* "\25BC" is a unicode charactr for Down Pointing Triangle */
+    content: "\25BC";
+    position: absolute;
+    background : #ff6f47;
+    top: 0;
+    right: 0;
+    padding : 16 px;
+    /* using pointer-events : none; we can click on the arrow */
+    pointer-events: none; 
+}
