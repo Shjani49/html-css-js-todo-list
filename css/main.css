@@ -141,3 +141,7 @@ select{
 p{
     text-align: center;
 }
+.filter
+{
+    display: none;
+}
