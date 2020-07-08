@@ -73,10 +73,12 @@ function filterTodo(e)
     todos.forEach(function(todos){
         switch(e.target.value){
             case "all":
-                todos.style.display = "flex"; // shows all completed and uncompleted todos
+                todos.style.display = "flex"; // shows all completed and uncompleted todos 
+                // I use here flex instead of box because i already set display flex for button..
+                // If use box then my completed and trash button would be underneath the text..
                 break;
             case "completed":
-                if(todos.classList.contains("completed")) // check if we have  class of completed or not
+                if(todos.classList.contains("completed")) // check if we have class of completed or not
                 {
                     todos.style.display = "flex"; // shows completed todos
                 }
@@ -84,6 +86,17 @@ function filterTodo(e)
                 {
                     todos.style.display = "none";
                 }
+                break;
+            case "active":
+                if(!todos.classList.contains("completed")) // check the class don't contain completed todos
+                {
+                    todos.style.display = "flex"; 
+                }
+                else
+                {
+                    todos.style.display = "none";
+                }
+                break;
             
         }
 
