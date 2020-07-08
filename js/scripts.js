@@ -20,7 +20,7 @@ function addTodo(event)
     //Create li
     //<li></li>
     const newTodo = document.createElement('li');
-    newTodo.ineerText = 'hey';
+    newTodo.innerText = todoInput.value; // Grab the Todo Input value 
     newTodo.classList.add('todo-item');
     todoDiv.appendChild(newTodo);
     // Completed button
@@ -41,4 +41,6 @@ function addTodo(event)
     // Append to List
     //</div>
     todoList.appendChild(todoDiv);
+    // Clear Input Todo value
+    todoInput.value = "";
 }
