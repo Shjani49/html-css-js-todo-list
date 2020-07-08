@@ -3,6 +3,8 @@ const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const todoFilter = document.querySelector(".filter-todo");
+// <p id="error-output"></p>
+const error = document.querySelector("#error-output");
 
 
 // Event Listeners
@@ -13,17 +15,40 @@ todoFilter.addEventListener("click", filterTodo);
 //Functions
 function addTodo(event)
 {
+    // Keep track of if the current submission has an error.
+    let errors = false;
+
+    // If the input is empty.
+    if (todoInput.value.trim() === "")
+    {
+        error.innerText = "Sorry, please ensure you enter an item before attempting to add it.";
+        errors = true;
+    }
+    // If the input already exists.
+    if (itemArray.includes(todoInput.value.trim().toLowerCase()))
+    {
+        error.innerText = "Sorry, please ensure that the item you have entered is not already on your list.";
+        errors = true;
+    }
+    
+    // Prevent Empty List Items (Including Whitespace) and Prevent Duplicate List Items (Case Insensitive)
+    if (!errors)
+    {
+        // Clear any errors from previous submissions if this one is valid.
+        error.innerText = "";
+
+
     //The preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.
     //Clicking on a "Submit" button, prevent it from submitting a form
-    event.preventDefault();
-    // Create <div class = "todo">
+    //event.preventDefault();
+    // Create <div class = "todo"> new Element
     //Todo div
     const todoDiv = document.createElement('div');
     todoDiv.classList.add("todo");
-    //Create li
+    //Create li Element
     //<li></li>
     const newTodo = document.createElement('li');
-    newTodo.innerText = todoInput.value; // Grab the Todo Input value 
+    newTodo.innerText = todoInput.value.trim().toLowerCase(); // Grab the Todo Input value 
     newTodo.classList.add('todo-item');
     todoDiv.appendChild(newTodo);
     // Completed button
@@ -46,6 +71,10 @@ function addTodo(event)
     todoList.appendChild(todoDiv);
     // Clear Todo Input value
     todoInput.value = "";
+
+    // Reset Focus To Input After Adding
+    input.focus();
+    }
 }
 
 function deleteCheck(e)
