@@ -13,7 +13,7 @@ body{
 }
 /* header and forn style*/
 header{
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 header,form{
     min-height: 20vh;
@@ -24,8 +24,8 @@ header,form{
 /* form Input and button Styles*/
 form input, 
 form button {
-    padding : 10px;
-    font-size : 20px;
+    padding : 0.5rem;
+    font-size : 2rem;
     border: none;
     background: white;
 }
@@ -33,7 +33,7 @@ form button {
 form button{
     color : #d88711;
     background: white;
-    cursor: pointer;
+    cursor: pointer; /* we can click on the button*/
     /* CSS Transitions allow property changes in CSS values to occur smoothly over a specified duration. This smoothing animates the changing of a CSS value when triggered by a mouse click, focus or active state, or any changes to the element (including even a change on the element’s class attribute).*/
     transition: all 0.3s ease;
 }
@@ -44,4 +44,37 @@ form button:hover{
     color: white;
 }
 
+/* style for todo buttons*/
+.todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.todo-list{
+    min-width : 30%;
+    list-style: none;
+}
 
+.todo{
+    margin: 0.5rem;
+    background: white;
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo li{
+    flex: 1; /* push all button to right of the end*/
+}
+.trash-btn, .complete-btn{
+    background: #ff6f47;
+    color: white;
+    border : none;
+    padding : 1rem;
+    cursor: pointer; /* we can click on the button*/
+    font-size: 1rem;
+}
+.complete-btn{
+    background: rgb(73,204,73);
+}
