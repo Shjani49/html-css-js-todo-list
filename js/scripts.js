@@ -1,17 +1,21 @@
 // selectors
-const todoInput = document.querySelector(".todo-input");
+let todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const todoFilter = document.querySelector(".filter-todo");
 // <p id="error-output"></p>
 const error = document.querySelector("#error-output");
+const dateTime = document.querySelector("#date");
+// Running list of all our items.
 let itemArray = [];
 
 
 // Event Listeners
 todoButton.addEventListener("click", addTodo);
+todoButton.addEventListener("click", addDateTime);
 todoList.addEventListener("click", deleteCheck);
 todoFilter.addEventListener("click", filterTodo);
+
 
 //Functions
 function addTodo(event)
@@ -126,12 +130,12 @@ function filterTodo(e)
             case "active":
                 if(!todos.classList.contains("completed")) // check the class don't contain completed todos
                 {
-                    todos.style.display = "flex"; 
+                    todos.style.display = "flex"; // show Active Todos
                     
                 }
                 else
                 {
-                    todos.style.display = "none";
+                    todos.style.display = "none"; 
                 }
                 break;
             
@@ -139,6 +143,9 @@ function filterTodo(e)
 
     });
 }
+/* try to hide the input when someone selects "completed" and "active"*/
+/* using jQuery here we use id of element and check with user value...If user select "completed" or "active" then other activity is hide for user.*/
+/* @Link : https://www.solodev.com/blog/web-design/how-to-hide-form-fields-based-upon-user-selection.stml */
 $("#select").change(function() 
 {
     if (($(this).val() == "completed") || ($(this).val() == "active"))
@@ -158,4 +165,25 @@ $("#select").change(function()
 });
 $("#select").trigger("change");
 
+function addDateTime(e)
+{
+    let date = new Date();
+    console.log(date);
+    let input = todoInput.value;
+    todoInput = input.concat('[', 'Started','Time:' + 'date', ']');
+    console.log(todoInput);
 
+}
+
+
+
+
+
+
+
+
+
+
+
+/* For the White Space logic I learned from James Shopping list example */
+/* I Watched few Dev Ed's tutorial for javascript in you tube before I made this application. */
