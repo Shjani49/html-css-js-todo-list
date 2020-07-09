@@ -1,18 +1,18 @@
 // selectors
-let todoInput = document.querySelector(".todo-input");
+const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const todoFilter = document.querySelector(".filter-todo");
 // <p id="error-output"></p>
 const error = document.querySelector("#error-output");
-const dateTime = document.querySelector("#date");
+//const dateTime = document.querySelector("#date");
 // Running list of all our items.
 let itemArray = [];
 
 
 // Event Listeners
 todoButton.addEventListener("click", addTodo);
-todoButton.addEventListener("click", addDateTime);
+//todoButton.addEventListener("click", addDateTime);
 todoList.addEventListener("click", deleteCheck);
 todoFilter.addEventListener("click", filterTodo);
 
@@ -52,7 +52,14 @@ function addTodo(event)
     //Create li Element
     //<li></li>
     const newTodo = document.createElement('li');
-    newTodo.innerText = todoInput.value.trim().toLowerCase(); // Grab the Todo Input value 
+    //newTodo.innerText = todoInput.value.trim().toLowerCase(); // Grab the Todo Input value 
+    // fetch the current date and time...
+    // @ Link : https://www.toptal.com/software/definitive-guide-to-datetime-manipulation#:~:text=Getting%20the%20Current%20Timestamp,passed%20since%20January%201%2C%201970 
+    let date = new Date();
+    // garb the Todo Input Value and concat with date and Time...
+    // @ Link : How to Concat two string: https://www.geeksforgeeks.org/javascript-string-prototype-concat-function/#:~:text=concat()%20function%20is%20used,more%20strings%20together%20in%20JavaScript.&text=The%20arguments%20to%20this%20function,strings%20to%20be%20joined%20together
+    newTodo.innerText= todoInput.value.trim().toLowerCase().concat('[', 'Start:',date, ']');
+    //console.log(newTodo);
     newTodo.classList.add('todo-item');
     itemArray.push(todoInput.value.trim().toLowerCase());
     todoDiv.appendChild(newTodo);
@@ -165,20 +172,6 @@ $("#select").change(function()
 });
 $("#select").trigger("change");
 
-function addDateTime(e)
-{
-    let date = new Date();
-    console.log(date);
-    let input = todoInput.value;
-    todoInput = input.concat('[', 'Started','Time:' + 'date', ']');
-    console.log(todoInput);
-
-}
-
-
-
-
-
 
 
 
@@ -186,4 +179,4 @@ function addDateTime(e)
 
 
 /* For the White Space logic I learned from James Shopping list example */
-/* I Watched few Dev Ed's tutorial for javascript in you tube before I made this application. */
+/* I Watched few tutorials for javascript in you tube before I made this application. */
