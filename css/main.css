@@ -78,11 +78,12 @@ form button:hover{
     cursor: pointer; /* we can click on the button*/
     font-size: 18px;
 }
+
 .complete-btn{
     background: rgb(73,204,73);
 }
 .edit-btn{
-    background :rgb(73,204,73);
+    background: rgb(73,204,73);
 }
 .todo-item{
     padding : 0 9px;
@@ -95,7 +96,7 @@ form button:hover{
 /* style for complete button */
 .completed
 {
-    text-decoration: line-through;
+     text-decoration: line-through; 
     /* The opacity property specifies the opacity/transparency of an element.*/
     /* @ Link : https://www.w3schools.com/css/css_image_transparency.asp */
     opacity: 0.5;
@@ -147,5 +148,5 @@ p{
 
 .todo-span{
     padding : 0 9px;
-    background: rgb(211, 133, 31);
 }
+

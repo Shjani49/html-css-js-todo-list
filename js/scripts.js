@@ -6,42 +6,24 @@ const todoFilter = document.querySelector(".filter-todo");
 const todoSpan = document.querySelector(".todo-span");
 // <p id="error-output"></p>
 const error = document.querySelector("#error-output");
-var editButton = document.querySelector('.todo-edit');
-//const dateTime = document.querySelector("#date");
+const todoEdit = document.querySelector(".todo-button");
 // Running list of all our items.
 let itemArray = [];
-var tab = [], index, 
-items = document.querySelectorAll("ul#list todo-list");
+let tabArray = [];
 
-    // get the selected li index using array
-        // populate array with li values
-
-        for (var i = 0; i < items.length; i++) {
-            tab.push(items[i].innerHTML);
-        }
-
-        // get li index onclick
-        for (var i = 0; i < items.length; i++) {
-            items[i].addEventListener("click", () =>  {
-
-                index = tab.indexOf(this.innerHTML);
-                console.log(this.innerHTML + "Index = " + index);
-                //set the selected li value into input text
-                todoInput.value = this.innerHTML;
-
-            });
-        }
-
+var liIndex; 
 
 
 
 
 // Event Listeners
 todoButton.addEventListener("click", addTodo);
-//todoButton.addEventListener("click", addDateTime);
 todoList.addEventListener("click", deleteCheck);
 todoFilter.addEventListener("click", filterTodo);
-//editButton.addEventListener("click", editTodo);
+//todoEdit.addEventListener("click", editTodo);
+
+
+
 
 
 
@@ -77,20 +59,42 @@ function addTodo(event) {
         //Create li Element
         //<li></li>
         const newTodo = document.createElement('li');
+        //newTodo.innerHTML = "<input type=\"text\" class=\"hidden\"><span>"+todoInput.value.trim().toLowerCase();+"</span>";
         newTodo.innerText = todoInput.value.trim().toLowerCase(); // Grab the Todo Input value 
         newTodo.classList.add('todo-item');
         itemArray.push(todoInput.value.trim().toLowerCase());
         todoDiv.appendChild(newTodo);
 
-        // Create span element for date and time 
-        // fetch the current date and time...
-        // @ Link : https://www.toptal.com/software/definitive-guide-to-datetime-manipulation#:~:text=Getting%20the%20Current%20Timestamp,passed%20since%20January%201%2C%201970 
-        const newSpan = document.createElement('span');
-        var start = new Date();
-        newSpan.innerText = start.toLocaleString();
-        newSpan.classList.add('todo-span');
-        todoDiv.appendChild(newSpan);
+        var inputText = document.querySelector(".todo-input");
+        var items = document.querySelectorAll(".todo-item"); 
         
+        //Try to implement edit but still not done...
+        // Link@: https://www.youtube.com/watch?v=ebGNDmfuGCA
+        // populates tab with li value
+        for (var i = 0; i < items.length; i++) 
+        { 
+            tabArray.push(items[i].innerHTML);
+        } 
+
+        //get selected li into text fields and get the index
+        for (var i = 0; i < items.length; i++) 
+        {
+            items[i].onclick = function () 
+            {
+                inputText.value = this.innerHTML;
+                //console.log(this.innerHTML);
+                liIndex = tabArray.indexOf(this.innerHTML);
+                console.log(this.innerHTML + " Index = " + liIndex);
+
+            };
+
+
+        }
+
+        
+
+        
+
 
         // Completed button
         //<button></button>
@@ -107,12 +111,27 @@ function addTodo(event) {
         //append button to div 
         todoDiv.appendChild(trashButton);
 
-        const editButton = document.createElement('button');
+        const editButton = document.createElement("button");
         editButton.innerHTML = "EDIT";
+        //editButton.querySelector("button").onclick() = function (){
+
+          //  items[liIndex].innerHTML = inputText.value;
+
+        //};
         editButton.classList.add("edit-btn");
+        //append button to div 
         todoDiv.appendChild(editButton);
 
-        
+        // Create span element for date and time 
+        // fetch the current date and time...
+        // @ Link : https://www.toptal.com/software/definitive-guide-to-datetime-manipulation#:~:text=Getting%20the%20Current%20Timestamp,passed%20since%20January%201%2C%201970 
+        const newSpan = document.createElement('span');
+        var start = new Date();
+        newSpan.innerText = start.toLocaleString();
+        newSpan.classList.add('todo-span');
+        todoDiv.appendChild(newSpan);
+
+
 
         // Append to List
         //</div>
@@ -127,9 +146,10 @@ function addTodo(event) {
 
 }
 
-function editTodo(e)
-{
-    }
+
+
+   
+
 function deleteCheck(e) {
 
     const item = e.target;
