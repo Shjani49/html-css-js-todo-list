@@ -70,7 +70,7 @@ form button:hover{
 .todo li{
     flex: 1; /* push all button to right of the end*/
 }
-.trash-btn, .complete-btn{
+.trash-btn, .complete-btn, .edit-btn{
     background: #ff6f47;
     color: white;
     border : none;
@@ -80,6 +80,9 @@ form button:hover{
 }
 .complete-btn{
     background: rgb(73,204,73);
+}
+.edit-btn{
+    background :rgb(73,204,73);
 }
 .todo-item{
     padding : 0 9px;
@@ -140,4 +143,9 @@ select{
 }
 p{
     text-align: center;
+}
+
+.todo-span{
+    padding : 0 9px;
+    background: rgb(211, 133, 31);
 }
