@@ -233,3 +233,8 @@ $("#select").trigger("change");
 
 /* For the White Space logic I learned from James Shopping list example */
 /* I Watched few tutorials for javascript in you tube before I made this application. */
+/* @Link: https://www.youtube.com/watch?v=b8sUhU_eq3g
+@Link: https://www.youtube.com/watch?v=Ttf3CEsEwMQ
+@Link: https://www.youtube.com/watch?v=Gp2bUX7_WIg
+@Link: https://www.youtube.com/watch?v=GBDMr24O_rs
+@Link: https://www.youtube.com/watch?v=KnKMGCSPj3Y&t=57s */
